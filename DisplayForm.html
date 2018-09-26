@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" x-undefined="" />
+<link rel="stylesheet" type="text/css" href="/SiteAssets/junreyd/mobileStyle.css">
+<link rel="stylesheet" type="text/css" href="/SiteAssets/Sample/SharePoint_Bug_Report_v.2.1/dist/components/table.min.css">
+<link rel="stylesheet" type="text/css" href="/SiteAssets/Sample/SharePoint_Bug_Report_v.2.1/dist/semantic.min.js">
+<link rel="stylesheet" type="text/css" href="/SiteAssets/Sample/SharePoint_Bug_Report_v.2.1/dist/semantic.js">
+<link rel="stylesheet" type="text/css" href="/SiteAssets/Sample/SharePoint_Bug_Report_v.2.1/dist/semantic.min.css">
+<title>DisplayForm</title>
+<script type="text/javascript">
+//start get data from SharePoint
+  $(document).ready(function() {
+  $("span.hillbillyForm").each(function() {
+  displayName = $(this).attr("data-displayName");
+  displayName  = displayName.replace(/&(?!amp;)/g,'&amp;'); 
+  elem = $(this);
+  $("table.ms-formtable td").each(function(){ if (this.innerHTML.indexOf('FieldName="'+displayName+'"') != -1){ $(this).contents().appendTo(elem); } }); }); 
+//end get data from SharePoint
+</script>
+</head>
+
+<body>
+   
+<table class="ui celled striped table" style="width: 500px;">
+    <thead>
+        <tr>
+            <th colspan="9" style="padding-bottom: 15px;
+                                   background: #435d7d;
+                                   color: #fff;
+                                   padding: 16px 30px;
+                                   margin: -20px -25px 10px;
+                                   border-radius: 3px 3px 0 0;
+                                   font-size: 20px;
+                                   color: white;">
+                <i class="mobile alternate icon" style="font-size: 20px;"></i>Mobile Authorization Form
+            </th>
+        </tr>
+    </thead>
+<tbody>
+    <tr>
+        <td class="collapsing">
+            <b>Notification from:</b>
+        </td>
+        <td>
+            <span class="hillbillyForm" data-displayName="Notification from"></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="collapsing">
+            <b>Employee:</b></td>
+            <td>
+            <span class="hillbillyForm" data-displayName="Employee"></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="collapsing">
+            <b>Department:</b></td>
+            <td>
+            <span class="hillbillyForm" data-displayName="Department"></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="collapsing">
+            <b>Ownership:</b></td>
+            <td>
+            <span class="hillbillyForm" data-displayName="Ownership"></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="collapsing">
+            <b>Purpose:</b></td>
+            <td>
+            <span class="hillbillyForm" data-displayName="Purpose"></span>
+        </td>
+    </tr>
+    <tr>
+      <td class="collapsing">
+            <b>CSO Approval:</b></td>
+            <td>
+            <span class="hillbillyForm" data-displayName="CSO Approval"></span>
+         </td>
+    </tr>
+    <tr>
+        <td class="collapsing">
+            <b>Rejected reason:</b>
+        </td>
+            <td>
+            	<span class="hillbillyForm" data-displayName="Rejected reason"></span>
+            </td>
+    </tr>
+</tbody>
+</table>
+</body>
+</html>
