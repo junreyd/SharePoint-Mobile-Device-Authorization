@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" x-undefined="" />
+<title>AllItems</title>
+<!-- start Change Items view to 4 -->
+<script type="text/javascript">
+ExecuteOrDelayUntilScriptLoaded(overrideSurfacePivotCount, 'clienttemplates.js');
+function overrideSurfacePivotCount() {
+ClientPivotControl.prototype.SurfacedPivotCount = 4;
+};
+</script>
+<!-- end Change Items view to 4 -->
+
+  <style type="text/css">
+    .ms-soften {
+    	display: none;
+    }	
+    .ms-listviewtable > thead > tr > th {
+      background-color: #5B9BD5;
+    }
+    .ms-vb2  .ms-rtestate-field p {
+    	width: 200px;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+    }
+    .ms-vh-div,  .ms-headerSortTitleLink {
+      color:white!important; font-weight: bold;
+    }
+    .ms-listviewtable > tbody > tr.ms-alternating {
+      background: #F9FAFB
+    }
+  </style>
+</head>
+<body>
+</body>
+</html>
