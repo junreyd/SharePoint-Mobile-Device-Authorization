@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" x-undefined="" />
+<title>Add</title>
+
+<link rel="stylesheet" type="text/css" href="/SiteAssets/junreyd/mobileStyle.css">
+
+<!-- start Style -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>  
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<!-- end Style -->
+
+<!-- start Script -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<!-- end Script -->
+
+<!-- start SharePoint default -->
+<script src="/SiteAssets/Scripts/jquery.min.js" type="text/javascript"></script> ​​
+<script src="/SiteAssets/Scripts/jquery.timeago.js" type="text/javascript"></script>
+<script src="/SiteAssets/sputility.min.js"></script>
+<script src="/_layouts/15/SP.dateTimeUtil.js" type="text/javascript"></script>
+<!-- end SharePoint default -->
+</head>
+
+<body>
+
+  <div id="cookieConsent">
+    <div id="closeCookieConsent"></div>
+    You are not allowed to make a request on this page.&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">More info please contact SharePoint Team</a>. <a class="cookieConsentOK">That's Fine</a>
+  </div>
+  <div class="container">
+      <div class="row">
+        <div class="table-responsive">  
+          <div class="container" style="width: 70%!important; height: 500%!important; margin-right: 100%;">
+            <div class="table-wrapper">
+              <table class="table table-striped table-hover">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h2><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;Mobile Authorization <b>Form</b></h2>
+                    </div>
+                  </div>
+                </div>
+              <table>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <b>Notification from:</b>
+                      <span class="hillbillyForm" data-displayName="Notification from"></span>       
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <b>Employee:</b>
+                      <span class="hillbillyForm" data-displayName="Employee"></span>       
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <b>Department:</b></br>
+                      <span class="hillbillyForm" data-displayName="Department"></span>       
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <b>Ownership:</b></br>
+                      <span class="hillbillyForm" data-displayName="Ownership"></span>       
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <b>Purpose:</b>
+                      <span class="hillbillyForm" data-displayName="Purpose"></span>       
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group" id="form-group1">
+                      <b>CSO Approval</b>
+                      <span class="hillbillyForm" data-displayName="CSO Approval"></span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group" id="asdf">
+                      <b>Rejected reason</b>
+                      <span class="hillbillyForm" data-displayName="Rejected reason"></span>
+                    </div>
+                  </td>
+                </tr>
+              <table>
+</body>
+<script type="text/javascript">
+//start Change Save to Submit
+(function ($, undefined) {
+  $("document").ready(function () {
+var inputcontrols = document.getElementsByTagName("input");
+  for(i = 0; i<inputcontrols.length; i++) {
+    if(inputcontrols[i].type == "button" && inputcontrols[i].value == "Save")
+    inputcontrols[i].value = "Submit";
+  }
+var ribbonSave = $("span.ms-cui-ctl-largelabel:contains('Save')");
+ribbonSave.text("Submit");
+});})(jQuery);
+//start Change Save to Submit
+
+//start get data from SharePoint
+  $(document).ready(function() {
+  $("span.hillbillyForm").each(function() {
+  displayName = $(this).attr("data-displayName");
+  displayName  = displayName.replace(/&(?!amp;)/g,'&amp;'); 
+  elem = $(this);
+  $("table.ms-formtable td").each(function(){ if (this.innerHTML.indexOf('FieldName="'+displayName+'"') != -1){ $(this).contents().appendTo(elem); } }); }); 
+//end get data from SharePoint
+
+  document.getElementById('asdf').style.display = 'none';
+  $("select[id='CSO_x0020_Approval_adc398f4-439a-45f0-92bb-1b4b03681789_$DropDownChoice']").change(function () {
+  var value = this.value;
+  if(value === "Reject") {
+    document.getElementById('asdf').style.display = 'block';
+  } else {
+    document.getElementById('asdf').style.display = 'none';
+  }
+});
+});    
+
+var userProfileProperties;
+ExecuteOrDelayUntilScriptLoaded(init,'sp.js');
+var targetUser;
+
+  function init(){
+    this.clientContext2 = new SP.ClientContext.get_current();
+    this.oWeb = clientContext2.get_web();
+    targetUser = this.oWeb.get_currentUser();
+    this.clientContext2.load(targetUser);
+    this.clientContext2.executeQueryAsync(Function.createDelegate(this,this.onQuerySucceeded), Function.createDelegate(this,this.onQueryFailed));      
+  }
+
+  function onQuerySucceeded() {
+    var account = targetUser.get_loginName();
+    targetUser_temp = account.substring(account.indexOf("|") + 10);
+    targetUser = targetUser_temp;
+
+    document.getElementById("Ribbon.ListForm.Edit.Commit.Publish-Large").style.display="none";
+
+      $("input[value$='Submit']").attr('disabled', true);
+      if(targetUser == "scotto" || targetUser == ""){ 
+        $("#form-group1").show();
+        $("input[value$='Submit']").attr('disabled', false); 
+        $("#form-group1").show();
+      } else if (targetUser == "artems" || targetUser == "mithis" || targetUser == "alinf" || targetUser == "junreyd" || targetUser == "System Account" || targetUser == "aysoukhomlinov" || targetUser === "nowmarc") {
+          $("input[value$='Submit']").attr('disabled', false);
+          $("#form-group1").hide();
+        } else {
+            $("#cookieConsent").fadeIn(200);
+            $("#closeCookieConsent, .cookieConsentOK").click(function() {
+            $("#cookieConsent").fadeOut(200);
+          });
+      $("#form-group1").hide();
+      $("input[value$='Submit']").attr('disabled', true); 
+    }
+  SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js');
+}
+
+  function getUserProperties() {
+    targetUser = 'hoitcebu\\'+targetUser;
+    var clientContext = new SP.ClientContext.get_current();
+    var peopleManager = new SP.UserProfiles.PeopleManager(clientContext);
+    var profilePropertyNames = ["PreferredName", "Department"];
+    var userProfilePropertiesForUser = 
+    new SP.UserProfiles.UserProfilePropertiesForUser(
+    clientContext,
+    targetUser,
+    profilePropertyNames);
+    userProfileProperties = peopleManager.getUserProfilePropertiesFor(
+    userProfilePropertiesForUser);
+    clientContext.load(userProfilePropertiesForUser);
+    clientContext.executeQueryAsync(onRequestSuccess);
+  }
+
+var Requestor;
+
+  function onRequestSuccess() {
+    var requestorName = userProfileProperties[0];
+    var department =  userProfileProperties[1];
+    Requestor = userProfileProperties[0];
+    document.getElementById('Notification_x0020_from_2d32e422-61cd-4615-aef3-33820967b4b2_$TextField').value = requestorName;
+  }
+
+  function checkInput(text) {
+    if (text) {
+      $("#clearBtn1").addClass("show");
+    } else {
+      $("#clearBtn1").removeClass("show");
+      }
+    }
+</script>
+</html>
